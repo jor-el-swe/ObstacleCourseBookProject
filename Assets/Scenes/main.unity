@@ -338,6 +338,7 @@ MonoBehaviour:
   timeToMaxSpeed: 0.26
   timeToLoseMaxSpeed: 0.2
   reverseMomentumMultiplier: 2.2
+  respawnWaitTime: 2
 --- !u!143 &2065551502
 CharacterController:
   m_ObjectHideFlags: 0
@@ -382,6 +383,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7098255789882711274, guid: 8a1ffd5791bf9c748949b03dcd75c90d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7098255789882711275, guid: 8a1ffd5791bf9c748949b03dcd75c90d,
         type: 3}

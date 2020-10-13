@@ -18,12 +18,10 @@ public class Player : MonoBehaviour
 
     [Tooltip("Time, in seconds, to reach maximum speed.")]
     public float timeToMaxSpeed = 0.26f;
-
     private float VelocityGainPerSecond => moveSpeed / timeToMaxSpeed;
 
     [Tooltip("Time, in seconds, to go from maximum speed to stationary.")]
     public float timeToLoseMaxSpeed = .2f;
-
     private float VelocityLossPerSecond => moveSpeed / timeToLoseMaxSpeed;
 
     [Tooltip("Multiplier for momentum when attempting to move in a direction opposite the current traveling direction" +
@@ -41,19 +39,48 @@ public class Player : MonoBehaviour
     private bool dead = false;
     
     private Vector3 spawnPoint;
+    private Quaternion spawnRotation;
 
+    public void Respawn()
+    {
+        dead = false;
+        trans.position = spawnPoint;
+        modelTrans.rotation = spawnRotation;
+        enabled = true;
+        characterController.enabled = true;
+        modelTrans.gameObject.SetActive(true);
+    }
     
+    public void Die()
+    {
+        if (!dead)
+        {
+            dead = true;
+            Invoke("Respawn", respawnWaitTime);
+            _movementVelocity = Vector3.zero;
+            enabled = false;
+            characterController.enabled = false;
+            modelTrans.gameObject.SetActive(false);
+        }
+    }
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        spawnPoint = trans.position;
+        spawnRotation = trans.rotation;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Movement();        
+        Movement();    
+        
+        //test code for "Die"
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            Die();
+        }
     }
 
     private void Movement()
