@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -83,7 +81,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Movement()
+    void Movement()
     {
          //FORWARD AND BACKWARD MOVEMENT
 

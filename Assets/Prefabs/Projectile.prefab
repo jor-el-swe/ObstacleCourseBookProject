@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trans: {fileID: 982581333554556319}
   speed: 34
-  range: 70
+  range: 150
 --- !u!54 &609134245178101623
 Rigidbody:
   m_ObjectHideFlags: 0
